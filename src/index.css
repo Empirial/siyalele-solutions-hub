@@ -9,32 +9,51 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Siyalele Brand Colors */
+    --primary: 189 85% 50%; /* Turquoise */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 189 85% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 232 75% 50%; /* Blue */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 232 75% 45%;
 
+    --industrial: 215 15% 25%; /* Dark Grey */
+    --industrial-foreground: 0 0% 100%;
+    --industrial-light: 215 10% 35%;
+
+    --accent-turquoise: 178 100% 45%;
+    --accent-blue: 232 85% 60%;
+    
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 189 85% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 189 85% 50%;
+
+    /* Industrial Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-industrial: linear-gradient(135deg, hsl(var(--industrial)), hsl(var(--industrial-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    
+    /* Shadows */
+    --shadow-industrial: 0 8px 32px -8px hsl(var(--industrial) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
 
     --radius: 0.5rem;
 

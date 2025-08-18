@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Shield, Users } from "lucide-react";
-import heroImage from "@/assets/hero-mining.jpg";
+import heroImage from "@/assets/hero-business.jpg";
 
 const Hero = () => {
   const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+am+interested+in+your+services";

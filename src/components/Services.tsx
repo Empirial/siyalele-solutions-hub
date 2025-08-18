@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { HardHat, Wrench, FileText, ArrowRight } from "lucide-react";
+import { HardHat, Wrench, FileText, ArrowRight, Headphones, Video, Shield, Truck } from "lucide-react";
 
 const Services = () => {
   const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+am+interested+in+";
@@ -15,17 +15,45 @@ const Services = () => {
     },
     {
       icon: Wrench,
-      title: "Engineering Maintenance",
-      description: "Professional machinery supply, servicing, and maintenance solutions to keep your operations running smoothly and efficiently.",
-      features: ["Machinery Supply", "Equipment Servicing", "Preventive Maintenance", "Technical Support"],
-      whatsappText: "Engineering+Maintenance+services"
+      title: "General Engineering & Maintenance",
+      description: "Comprehensive maintenance services including boiler making, electrical work, mechanical services, and fabrication by qualified personnel.",
+      features: ["Boiler Making & Fabrication", "Electrical Work & Supply", "Mechanical Parts & Supply", "Qualified Personnel"],
+      whatsappText: "General+Engineering+and+Maintenance+services"
     },
     {
       icon: FileText,
-      title: "Consulting Services",
-      description: "Expert consulting in Social Labour Plan (SLP) compliance, Human Resources solutions, and Environmental services for sustainable business growth.",
-      features: ["SLP Compliance", "HR Solutions", "Environmental Services", "Business Consulting"],
-      whatsappText: "Consulting+Services"
+      title: "HR Consultation & SLP Services",
+      description: "Expert HR consulting, Social Labour Plan drafting, disciplinary facilitation, training, and comprehensive auditing services.",
+      features: ["SLP Drafting & Consultation", "HR Policies & Review", "Disciplinary Facilitation", "HR Training & Auditing"],
+      whatsappText: "HR+Consultation+and+SLP+Services"
+    },
+    {
+      icon: Headphones,
+      title: "Contact Centre & Conferencing Equipment",
+      description: "Professional headsets, audio accessories, and conferencing equipment from leading brands like Poly, Yealink, and Jabra.",
+      features: ["Wired & Wireless Headsets", "Noise-Cancelling Headphones", "USB & Bluetooth Headsets", "Audio Accessories"],
+      whatsappText: "Contact+Centre+and+Conferencing+Equipment"
+    },
+    {
+      icon: Video,
+      title: "Video Conferencing Solutions",
+      description: "Complete video conferencing systems including cameras, speakers, and portable solutions for modern business communication.",
+      features: ["Conference Room Cameras", "4K Video Systems", "Conference Speakers", "Wireless Audio Solutions"],
+      whatsappText: "Video+Conferencing+Solutions"
+    },
+    {
+      icon: Shield,
+      title: "Fencing Solutions",
+      description: "Comprehensive fencing services including barbed wire, chain link, and electric fencing for security and property protection.",
+      features: ["Barbed Wire Fencing", "Chain Link Fencing", "Electric Fencing", "Security Solutions"],
+      whatsappText: "Fencing+Solutions"
+    },
+    {
+      icon: Truck,
+      title: "Supply & Delivery",
+      description: "Complete supply and delivery services for construction materials, machinery, office supplies, and specialized equipment hire.",
+      features: ["Construction Materials", "Engineering Components", "Office Supplies & Stationery", "Machine Hire Services"],
+      whatsappText: "Supply+and+Delivery+services"
     }
   ];
 
@@ -41,7 +69,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

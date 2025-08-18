@@ -50,12 +50,20 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-industrial: linear-gradient(135deg, hsl(var(--industrial)), hsl(var(--industrial-light)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
     
-    /* Shadows */
+    /* Shadows & Effects */
     --shadow-industrial: 0 8px 32px -8px hsl(var(--industrial) / 0.3);
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-elevated: 0 16px 64px -16px hsl(var(--industrial) / 0.4);
 
-    --radius: 0.5rem;
+    /* Animation Durations */
+    --transition-fast: 0.15s ease-out;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 

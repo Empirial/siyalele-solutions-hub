@@ -23,11 +23,11 @@ const Directors = () => {
   return (
     <section id="directors" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-industrial mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-industrial mb-6 tracking-tight">
             Leadership Team
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Meet our dynamic directors committed to driving excellence and transformation
           </p>
         </div>

@@ -32,11 +32,11 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-industrial mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-industrial mb-6 tracking-tight">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Comprehensive solutions for mining, engineering, and business consulting needs
           </p>
         </div>
@@ -45,32 +45,36 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-industrial transition-all duration-300 border-0 bg-white">
+              <Card 
+                key={index} 
+                className="group hover:shadow-elevated transition-all duration-smooth border-0 bg-white animate-scale-in hover:-translate-y-2 transform"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="h-8 w-8 text-white" />
+                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-smooth shadow-card group-hover:shadow-glow">
+                    <Icon className="h-9 w-9 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold text-industrial group-hover:text-primary transition-colors">
+                  <CardTitle className="font-heading text-xl font-bold text-industrial group-hover:text-primary transition-colors duration-smooth">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-muted-foreground mb-6 leading-relaxed">
+                  <CardDescription className="text-muted-foreground mb-6 leading-relaxed text-base">
                     {service.description}
                   </CardDescription>
                   
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                        {feature}
+                      <li key={idx} className="flex items-center text-sm group/item">
+                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 group-hover/item:scale-125 transition-transform duration-fast"></div>
+                        <span className="group-hover/item:text-primary transition-colors duration-fast">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Button 
                     asChild
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-semibold"
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-glow hover:scale-105 transition-all duration-smooth text-white font-semibold group/btn"
                   >
                     <a 
                       href={`${whatsappLink}${service.whatsappText}`} 
@@ -78,7 +82,7 @@ const Services = () => {
                       rel="noopener noreferrer"
                     >
                       Request via WhatsApp
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-fast" />
                     </a>
                   </Button>
                 </CardContent>

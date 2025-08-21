@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Shield, Users } from "lucide-react";
-import heroImage from "@/assets/hero-business.jpg";
+import heroImage from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+am+interested+in+your+services";
+  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center">
@@ -17,7 +17,16 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <div className="max-w-4xl animate-fade-in">
+        <div className="text-center animate-fade-in">
+          {/* Centered Logo */}
+          <div className="flex justify-center mb-8">
+            <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent-turquoise rounded-full flex items-center justify-center shadow-glow animate-pulse">
+              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center animate-bounce">
+                <span className="text-2xl font-bold text-primary">SP</span>
+              </div>
+            </div>
+          </div>
+          
           <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 tracking-tight">
             Innovative Mining & Engineering Solutions,{" "}
             <span className="bg-gradient-to-r from-primary to-accent-turquoise bg-clip-text text-transparent">
@@ -25,18 +34,18 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-10 text-gray-200 leading-relaxed max-w-3xl font-light animate-fade-in-left animation-delay-200">
+          <p className="text-xl md:text-2xl mb-10 text-gray-200 leading-relaxed max-w-3xl mx-auto font-light animate-fade-in-left animation-delay-200">
             Your trusted partner for mining supply, engineering maintenance, and professional consulting services across South Africa.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-scale-in">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center animate-scale-in">
             <Button 
               asChild
               size="lg"
-              className="group bg-gradient-to-r from-primary to-secondary hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-8 py-4 transform hover:scale-105"
+              className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-8 py-4 transform hover:scale-105"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                Chat with Us on WhatsApp
+                Get A Quote
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-fast" />
               </a>
             </Button>

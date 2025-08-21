@@ -13,6 +13,7 @@ const About = () => {
   const certifications = [
     { label: "Company Registration", value: "2023/000257/07" },
     { label: "CSD Verification", value: "MAAA1487648" },
+    { label: "Eskom Vendor", value: "11094569" },
     { label: "Tax Clearance", value: "9279622253" },
     { label: "VAT Number", value: "4410317988" },
     { label: "Banking", value: "ABSA Business Account" }

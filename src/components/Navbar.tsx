@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+am+interested+in+your+services";
+  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
@@ -51,11 +51,11 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button 
               asChild
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-semibold"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-semibold"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Phone className="w-4 h-4 mr-2" />
-                Chat on WhatsApp
+                Get A Quote
               </a>
             </Button>
           </div>
@@ -90,11 +90,11 @@ const Navbar = () => {
             <div className="pt-4 pb-2">
               <Button 
                 asChild
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-semibold"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-semibold"
               >
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" />
-                  Chat on WhatsApp
+                  Get A Quote
                 </a>
               </Button>
             </div>

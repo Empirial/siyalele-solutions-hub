@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { HardHat, Wrench, FileText, ArrowRight, Headphones, Video, Shield, Truck } from "lucide-react";
+import { HardHat, Wrench, FileText, ArrowRight, Headphones, Video, Shield, Truck, Leaf } from "lucide-react";
 
 const Services = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+am+interested+in+";
+  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote+for+";
 
   const services = [
     {
@@ -22,10 +22,10 @@ const Services = () => {
     },
     {
       icon: FileText,
-      title: "HR Consultation & SLP Services",
-      description: "Expert HR consulting, Social Labour Plan drafting, disciplinary facilitation, training, and comprehensive auditing services.",
-      features: ["SLP Drafting & Consultation", "HR Policies & Review", "Disciplinary Facilitation", "HR Training & Auditing"],
-      whatsappText: "HR+Consultation+and+SLP+Services"
+      title: "HR Consultation & Social Labour Plan Services",
+      description: "Expert HR consulting, Social Labour Plan (SLP) drafting, disciplinary facilitation, training, and comprehensive auditing services.",
+      features: ["Social Labour Plan (SLP) Drafting & Consultation", "HR Policies & Review", "Disciplinary Facilitation", "HR Training & Auditing"],
+      whatsappText: "HR+Consultation+and+Social+Labour+Plan+Services"
     },
     {
       icon: Headphones,
@@ -54,6 +54,13 @@ const Services = () => {
       description: "Complete supply and delivery services for construction materials, machinery, office supplies, and specialized equipment hire.",
       features: ["Construction Materials", "Engineering Components", "Office Supplies & Stationery", "Machine Hire Services"],
       whatsappText: "Supply+and+Delivery+services"
+    },
+    {
+      icon: Leaf,
+      title: "Environmental Management",
+      description: "Comprehensive environmental management services including waste management, pollution control, and specialized cleaning solutions.",
+      features: ["Waste & Pollution Control", "Vacuum Truck & Dredging", "Dam De-sludging", "Tree Felling & Alien Species Removal"],
+      whatsappText: "Environmental+Management+services"
     }
   ];
 
@@ -102,14 +109,14 @@ const Services = () => {
 
                   <Button 
                     asChild
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-glow hover:scale-105 transition-all duration-smooth text-white font-semibold group/btn"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow hover:scale-105 transition-all duration-smooth text-white font-semibold group/btn"
                   >
                     <a 
                       href={`${whatsappLink}${service.whatsappText}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      Request via WhatsApp
+                      Get A Quote
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-fast" />
                     </a>
                   </Button>

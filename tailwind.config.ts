@@ -148,6 +148,10 @@ export default {
 						transform: 'translateX(0)'
 					}
 				},
+				'scroll': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
+				},
 				'scale-in': {
 					'0%': {
 						opacity: '0',
@@ -184,7 +188,8 @@ export default {
 				'fade-in-left': 'fade-in-left 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'slide-up': 'slide-up 0.5s ease-out',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'scroll': 'scroll 30s linear infinite'
 			}
 		}
 	},

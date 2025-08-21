@@ -3,64 +3,54 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { HardHat, Wrench, FileText, ArrowRight, Headphones, Video, Shield, Truck, Leaf } from "lucide-react";
 
 const Services = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote+for+";
-
   const services = [
     {
       icon: HardHat,
       title: "Mining & Construction Supply",
       description: "Complete range of mining equipment, construction tools, machinery, and Personal Protective Equipment (PPE) for safe and efficient operations.",
       features: ["Mining Equipment", "Construction Tools", "PPE & Safety Gear", "Machinery Supply"],
-      whatsappText: "Mining+and+Construction+Supply+services"
     },
     {
       icon: Wrench,
       title: "General Engineering & Maintenance",
       description: "Comprehensive maintenance services including boiler making, electrical work, mechanical services, and fabrication by qualified personnel.",
       features: ["Boiler Making & Fabrication", "Electrical Work & Supply", "Mechanical Parts & Supply", "Qualified Personnel"],
-      whatsappText: "General+Engineering+and+Maintenance+services"
     },
     {
       icon: FileText,
       title: "HR Consultation & Social Labour Plan Services",
       description: "Expert HR consulting, Social Labour Plan (SLP) drafting, disciplinary facilitation, training, and comprehensive auditing services.",
       features: ["Social Labour Plan (SLP) Drafting & Consultation", "HR Policies & Review", "Disciplinary Facilitation", "HR Training & Auditing"],
-      whatsappText: "HR+Consultation+and+Social+Labour+Plan+Services"
     },
     {
       icon: Headphones,
       title: "Contact Centre & Conferencing Equipment",
       description: "Professional headsets, audio accessories, and conferencing equipment from leading brands like Poly, Yealink, and Jabra.",
       features: ["Wired & Wireless Headsets", "Noise-Cancelling Headphones", "USB & Bluetooth Headsets", "Audio Accessories"],
-      whatsappText: "Contact+Centre+and+Conferencing+Equipment"
     },
     {
       icon: Video,
       title: "Video Conferencing Solutions",
       description: "Complete video conferencing systems including cameras, speakers, and portable solutions for modern business communication.",
       features: ["Conference Room Cameras", "4K Video Systems", "Conference Speakers", "Wireless Audio Solutions"],
-      whatsappText: "Video+Conferencing+Solutions"
     },
     {
       icon: Shield,
       title: "Fencing Solutions",
       description: "Comprehensive fencing services including barbed wire, chain link, and electric fencing for security and property protection.",
       features: ["Barbed Wire Fencing", "Chain Link Fencing", "Electric Fencing", "Security Solutions"],
-      whatsappText: "Fencing+Solutions"
     },
     {
       icon: Truck,
       title: "Supply & Delivery",
       description: "Complete supply and delivery services for construction materials, machinery, office supplies, and specialized equipment hire.",
       features: ["Construction Materials", "Engineering Components", "Office Supplies & Stationery", "Machine Hire Services"],
-      whatsappText: "Supply+and+Delivery+services"
     },
     {
       icon: Leaf,
       title: "Environmental Management",
       description: "Comprehensive environmental management services including waste management, pollution control, and specialized cleaning solutions.",
       features: ["Waste & Pollution Control", "Vacuum Truck & Dredging", "Dam De-sludging", "Tree Felling & Alien Species Removal"],
-      whatsappText: "Environmental+Management+services"
     }
   ];
 
@@ -111,11 +101,7 @@ const Services = () => {
                     asChild
                     className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow hover:scale-105 transition-all duration-smooth text-white font-semibold group/btn"
                   >
-                    <a 
-                      href={`${whatsappLink}${service.whatsappText}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
+                    <a href="#contact-form">
                       Get A Quote
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-fast" />
                     </a>

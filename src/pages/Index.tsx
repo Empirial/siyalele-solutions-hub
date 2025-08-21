@@ -4,6 +4,7 @@ import Vision from "@/components/Vision";
 import Services from "@/components/Services";
 import Directors from "@/components/Directors";
 import Clients from "@/components/Clients";
+import ContactForm from "@/components/ContactForm";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <Services />
       <Directors />
       <Clients />
+      <ContactForm />
       <Contact />
       <Footer />
     </div>

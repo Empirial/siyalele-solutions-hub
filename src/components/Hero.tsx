@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Shield, Users } from "lucide-react";
 
 const Hero = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
-
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-0">
       {/* Background Image with Overlay */}
@@ -45,7 +43,7 @@ const Hero = () => {
               size="lg"
               className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-8 py-4 transform hover:scale-105"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a href="#contact-form">
                 Get A Quote
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-fast" />
               </a>

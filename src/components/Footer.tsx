@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
-
   return (
     <footer className="bg-industrial text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -29,7 +27,7 @@ const Footer = () => {
               asChild
               className="bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-semibold"
             >
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a href="#contact-form">
                 <MessageSquare className="mr-2 h-4 w-4" />
                 Get A Quote
               </a>

@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Mail, MessageSquare, Clock, Building } from "lucide-react";
 
 const Contact = () => {
-  const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
-  
   const contactInfo = [
     {
       icon: MapPin,
@@ -110,7 +108,7 @@ const Contact = () => {
                   size="lg"
                   className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:opacity-90 text-white font-bold text-lg py-6"
                 >
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <a href="#contact-form">
                     <MessageSquare className="mr-2 h-5 w-5" />
                     Get A Quote
                   </a>

@@ -179,6 +179,16 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px hsl(var(--primary) / 0.6)'
 					}
+				},
+				'slow-bounce': {
+					'0%, 100%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(-25%)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
 				}
 			},
 			animation: {
@@ -189,7 +199,8 @@ export default {
 				'scale-in': 'scale-in 0.4s ease-out',
 				'slide-up': 'slide-up 0.5s ease-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'scroll': 'scroll 30s linear infinite'
+				'scroll': 'scroll 30s linear infinite',
+				'slow-bounce': 'slow-bounce 3s ease-in-out infinite'
 			}
 		}
 	},

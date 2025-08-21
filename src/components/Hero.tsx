@@ -1,16 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Shield, Users } from "lucide-react";
-import heroImage from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
   const whatsappLink = "https://wa.me/27732178184?text=Hello+Siyalele+Projects,+I+would+like+to+get+a+quote";
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
+    <section id="home" className="relative min-h-screen flex items-center pt-0">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(/lovable-uploads/e396e44a-166c-4170-89e7-3ec9a6084f30.png)` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-industrial/90 via-industrial/70 to-industrial/50"></div>
       </div>
@@ -20,10 +19,12 @@ const Hero = () => {
         <div className="text-center animate-fade-in">
           {/* Centered Logo */}
           <div className="flex justify-center mb-8">
-            <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent-turquoise rounded-full flex items-center justify-center shadow-glow animate-pulse">
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center animate-bounce">
-                <span className="text-2xl font-bold text-primary">SP</span>
-              </div>
+            <div className="w-32 h-32 animate-slow-bounce">
+              <img 
+                src="/lovable-uploads/e396e44a-166c-4170-89e7-3ec9a6084f30.png" 
+                alt="Siyalele Projects Logo" 
+                className="w-full h-full object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
           

@@ -67,7 +67,7 @@ const Vision = () => {
             </div>
             
             <div className="text-center group animate-scale-in" style={{ animationDelay: '300ms' }}>
-              <div className="w-20 h-20 bg-gradient-to-br from-accent-turquoise to-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-smooth shadow-card group-hover:shadow-glow">
+              <div className="w-20 h-20 bg-gradient-to-br from-accent-orange to-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-smooth shadow-card group-hover:shadow-glow">
                 <Eye className="h-10 w-10 text-white" />
               </div>
               <h4 className="font-heading font-bold text-industrial mb-3 text-lg">Empowerment</h4>

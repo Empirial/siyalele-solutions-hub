@@ -14,6 +14,8 @@ const About = () => {
     { label: "Company Registration", value: "2023/000257/07" },
     { label: "CSD Verification", value: "MAAA1487648" },
     { label: "Eskom Vendor", value: "11094569" },
+    { label: "ARC LNR", value: "Agricultural Research Council" },
+    { label: "Supplier Number", value: "SUPL008169" },
     { label: "Tax Clearance", value: "9279622253" },
     { label: "VAT Number", value: "4410317988" },
     { label: "Banking", value: "ABSA Business Account" }

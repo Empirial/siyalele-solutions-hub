@@ -73,9 +73,9 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="group flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-smooth border border-white/20 hover:border-accent-turquoise/50 transform hover:-translate-y-1">
-              <div className="p-2 bg-accent-turquoise/20 rounded-full group-hover:bg-accent-turquoise/30 transition-colors duration-smooth">
-                <Users className="h-6 w-6 text-accent-turquoise" />
+            <div className="group flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-smooth border border-white/20 hover:border-accent-orange/50 transform hover:-translate-y-1">
+              <div className="p-2 bg-accent-orange/20 rounded-full group-hover:bg-accent-orange/30 transition-colors duration-smooth">
+                <Users className="h-6 w-6 text-accent-orange" />
               </div>
               <div>
                 <h3 className="font-semibold font-heading">Youth-Led Company</h3>

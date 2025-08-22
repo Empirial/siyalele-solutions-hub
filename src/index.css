@@ -18,25 +18,25 @@ All colors MUST be HSL.
     --popover-foreground: 215 25% 20%;
 
     /* Siyalele Brand Colors */
-    --primary: 189 85% 50%; /* Turquoise */
+    --primary: 25 100% 58%; /* Orange */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 189 85% 45%;
+    --primary-hover: 25 100% 52%;
 
-    --secondary: 25 100% 58%; /* Orange */
+    --secondary: 32 100% 65%; /* Light Orange */
     --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 232 75% 45%;
+    --secondary-hover: 32 100% 58%;
 
     --industrial: 215 15% 25%; /* Dark Grey */
     --industrial-foreground: 0 0% 100%;
     --industrial-light: 215 10% 35%;
 
-    --accent-turquoise: 178 100% 45%;
-    --accent-blue: 232 85% 60%;
+    --accent-orange: 20 100% 55%;
+    --accent-deep-orange: 15 100% 50%;
     
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 189 85% 50%;
+    --accent: 25 100% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;

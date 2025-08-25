@@ -3,7 +3,7 @@ import { ArrowRight, Award, Shield, Users } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-0">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 lg:pt-20">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

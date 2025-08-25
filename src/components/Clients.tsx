@@ -8,7 +8,7 @@ const Clients = () => {
   ];
 
   return (
-    <section className="py-12 bg-muted/20 overflow-hidden">
+    <section id="clients" className="py-12 bg-muted/20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="font-heading text-3xl font-bold text-industrial mb-4">

@@ -21,6 +21,7 @@ const Navigation = () => {
     { label: "About Us", href: "#about" },
     { label: "Our Services", href: "#services" },
     { label: "Directors", href: "#directors" },
+    { label: "Trusted by", href: "#clients" },
     { label: "Contact", href: "#contact" },
   ];
 

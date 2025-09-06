@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -39,23 +40,47 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        to_email: 'mphelalufuno1.0@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Not provided',
+        service: formData.service,
+        message: formData.message,
+        subject: `Quote Request - ${formData.service}`
+      };
 
-    toast({
-      title: "Quote Request Submitted!",
-      description: "We'll get back to you within 2 hours during business hours.",
-    });
+      await emailjs.send(
+        'service_siyalele', // You'll need to set this up in EmailJS
+        'template_quote', // You'll need to create this template
+        templateParams,
+        'your_public_key' // You'll need to get this from EmailJS
+      );
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      service: "",
-      message: ""
-    });
+      toast({
+        title: "Quote Request Submitted!",
+        description: "We'll get back to you within 2 hours during business hours.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        message: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send quote request. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    }
 
     setIsSubmitting(false);
   };

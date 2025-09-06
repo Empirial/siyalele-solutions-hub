@@ -40,30 +40,49 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const EMAIL_RECIPIENT = 'mphelalufuno1.0@gmail.com';
+
     try {
-      // Send email using EmailJS
+      const subject = `Quote Request - ${formData.service || 'General'}`;
+      const body = `New quote request from ${formData.name}\n\n` +
+        `Service: ${formData.service}\n` +
+        `Company: ${formData.company || 'Not provided'}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Email: ${formData.email}\n\n` +
+        `Project Details:\n${formData.message}`;
+
+      // EmailJS configuration (optionally stored in localStorage)
+      const SERVICE_ID = localStorage.getItem('emailjs_service_id') || 'service_siyalele';
+      const TEMPLATE_ID = localStorage.getItem('emailjs_template_id') || 'template_quote';
+      const PUBLIC_KEY = localStorage.getItem('emailjs_public_key') || '';
+
       const templateParams = {
-        to_email: 'mphelalufuno1.0@gmail.com',
+        to_email: EMAIL_RECIPIENT,
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
         company: formData.company || 'Not provided',
         service: formData.service,
         message: formData.message,
-        subject: `Quote Request - ${formData.service}`
+        subject,
       };
 
-      await emailjs.send(
-        'service_siyalele', // You'll need to set this up in EmailJS
-        'template_quote', // You'll need to create this template
-        templateParams,
-        'your_public_key' // You'll need to get this from EmailJS
-      );
+      if (PUBLIC_KEY && SERVICE_ID && TEMPLATE_ID) {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
-      toast({
-        title: "Quote Request Submitted!",
-        description: "We'll get back to you within 2 hours during business hours.",
-      });
+        toast({
+          title: "Quote Request Sent",
+          description: "Thanks! We’ll reply within 2 business hours.",
+        });
+      } else {
+        // Graceful fallback: open user's email client
+        const mailto = `mailto:${EMAIL_RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+        toast({
+          title: "Opening your email app",
+          description: "We couldn’t auto-send, so we prefilled an email for you.",
+        });
+      }
 
       // Reset form
       setFormData({
@@ -72,13 +91,13 @@ const ContactForm = () => {
         phone: "",
         company: "",
         service: "",
-        message: ""
+        message: "",
       });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send quote request. Please try again or contact us directly.",
-        variant: "destructive"
+        title: "Failed to send quote",
+        description: "Please try again or use the email button below.",
+        variant: "destructive",
       });
     }
 
@@ -244,9 +263,9 @@ const ContactForm = () => {
                     <Phone className="h-4 w-4 mr-2" />
                     +27 73 217 8184
                   </a>
-                  <a href="mailto:Siyalele.pty.ltd@gmail.com" className="flex items-center text-primary hover:text-primary-hover transition-colors">
+                  <a href="mailto:mphelalufuno1.0@gmail.com" className="flex items-center text-primary hover:text-primary-hover transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
-                    Siyalele.pty.ltd@gmail.com
+                    mphelalufuno1.0@gmail.com
                   </a>
                 </div>
               </div>

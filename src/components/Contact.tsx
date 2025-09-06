@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Address",
-      details: ["Siyalele.pty.ltd@gmail.com"],
+      details: ["mphelalufuno1.0@gmail.com"],
       type: "email"
     },
     {
@@ -128,7 +128,7 @@ const Contact = () => {
                   variant="outline"
                   className="w-full justify-start hover:bg-primary/5 hover:border-primary"
                 >
-                  <a href="mailto:Siyalele.pty.ltd@gmail.com">
+                  <a href="mailto:mphelalufuno1.0@gmail.com">
                     <Mail className="mr-3 h-4 w-4" />
                     Email Us
                   </a>

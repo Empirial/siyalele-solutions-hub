@@ -149,7 +149,7 @@ const ContactForm = () => {
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center text-industrial font-medium">
                     <Mail className="h-4 w-4 mr-2 text-primary" />
-                    siyalele.pty.ltd@gmail.com
+                    Email Address *
                   </Label>
                   <Input
                     id="email"

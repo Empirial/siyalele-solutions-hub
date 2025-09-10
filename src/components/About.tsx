@@ -36,7 +36,7 @@ const About = () => {
               </p>
               
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our leadership team consists of <strong>50% black female and 50% black male directors</strong>, bringing diverse perspectives and expertise to deliver exceptional value to our clients while promoting transformation in the industry.
+                Our leadership team consists of <strong>50% female and 50% male directors</strong>, bringing diverse perspectives and expertise to deliver exceptional value to our clients while promoting transformation in the industry.
               </p>
               
               <p className="text-muted-foreground leading-relaxed mb-8">

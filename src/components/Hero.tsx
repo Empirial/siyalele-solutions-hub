@@ -75,11 +75,11 @@ const Hero = () => {
             
             <div className="group flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-smooth border border-white/20 hover:border-accent-orange/50 transform hover:-translate-y-1">
               <div className="p-2 bg-accent-orange/20 rounded-full group-hover:bg-accent-orange/30 transition-colors duration-smooth">
-                <Users className="h-6 w-6 text-accent-orange" />
+                <Users className="h-6 w-6 text-orange-500" />
               </div>
               <div>
                 <h3 className="font-semibold font-heading">Youth-Led Company</h3>
-                <p className="text-sm text-gray-300">50% Female Directors</p>
+                <p className="text-sm text-gray-300">Diverse Leadership</p>
               </div>
             </div>
             

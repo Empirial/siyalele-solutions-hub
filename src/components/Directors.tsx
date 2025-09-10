@@ -84,7 +84,7 @@ const Directors = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               <div className="bg-white/50 rounded-lg p-6">
-                <h4 className="font-bold text-industrial mb-2">50% Female Leadership</h4>
+                <h4 className="font-bold text-industrial mb-2">Diverse Leadership</h4>
                 <p className="text-muted-foreground">Promoting gender diversity in executive positions</p>
               </div>
               <div className="bg-white/50 rounded-lg p-6">

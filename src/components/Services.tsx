@@ -175,7 +175,7 @@ const Services = () => {
                   
                   {/* Icon Overlay */}
                   <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-md">
-                    <Icon className="h-6 w-6 text-gray-700" />
+                    <Icon className="h-6 w-6 text-orange-600" />
                   </div>
 
                   {/* Image Counter */}

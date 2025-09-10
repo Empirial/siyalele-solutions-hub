@@ -93,9 +93,9 @@ const Services = () => {
       description: "Complete supply and delivery services for construction materials, machinery, office supplies, and specialized equipment hire.",
       features: ["Construction Materials", "Engineering Components", "Office Supplies & Stationery", "Machine Hire Services"],
       images: [
-        "/public/loveable-uploads/Electronics Accessory Electrical engineering Electronic engineering Electronic component, alcohol lamp, electronics, electrical Wires Cable, engineering png.jpeg",
+        "/public/loveable-uploads/Elec.jpeg",
         "/public/loveable-uploads/OfficeS.jpeg",
-        "/public/loveable-uploads/3d Set Of Construction Materials And Tools Materials For Construction 3d Illustration, Construction, 3d, Tool PNG Transparent Image and Clipart for Free Download.jpeg"
+        "/public/loveable-uploads/Constr.jpeg"
       ],
     },
     {

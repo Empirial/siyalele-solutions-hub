@@ -27,9 +27,9 @@ const Services = () => {
       description: "Complete range of mining equipment, construction tools, machinery, and Personal Protective Equipment (PPE) for safe and efficient operations.",
       features: ["Mining Equipment", "Construction Tools", "PPE & Safety Gear", "Machinery Supply"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250", 
-        "/api/placeholder/400/250"
+        "/lovable-uploads/construction tools.jpg",
+        "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+        "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
       ],
     },
     {
@@ -38,9 +38,9 @@ const Services = () => {
       description: "Comprehensive maintenance services including boiler making, electrical work, mechanical services, and fabrication by qualified personnel.",
       features: ["Boiler Making & Fabrication", "Electrical Work & Supply", "Mechanical Parts & Supply", "Qualified Personnel"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "/lovable-uploads/Electrical Work & Supply.jpg",
+        "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+        "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
       ],
     },
     {
@@ -49,9 +49,9 @@ const Services = () => {
       description: "Expert HR consulting, Social Labour Plan (SLP) drafting, disciplinary facilitation, training, and comprehensive auditing services.",
       features: ["Social Labour Plan (SLP) Drafting & Consultation", "HR Policies & Review", "Disciplinary Facilitation", "HR Training & Auditing"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+        "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
       ],
     },
     {
@@ -60,9 +60,9 @@ const Services = () => {
       description: "Professional headsets, audio accessories, and conferencing equipment from leading brands like Poly, Yealink, and Jabra.",
       features: ["Wired & Wireless Headsets", "Noise-Cancelling Headphones", "USB & Bluetooth Headsets", "Audio Accessories"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "/lovable-uploads/Noise-Cancelling Headphones.jpeg",
+        "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+        "https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
       ],
     },
     {

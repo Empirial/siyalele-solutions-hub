@@ -71,9 +71,9 @@ const Services = () => {
       description: "Complete video conferencing systems including cameras, speakers, and portable solutions for modern business communication.",
       features: ["Conference Room Cameras", "4K Video Systems", "Conference Speakers", "Wireless Audio Solutions"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "/lovable-uploads/4.jpg",
+        "/lovable-uploads/5.jpg",
+        "/lovable-uploads/6.jpg"
       ],
     },
     {
@@ -82,9 +82,9 @@ const Services = () => {
       description: "Comprehensive fencing services including barbed wire, chain link, and electric fencing for security and property protection.",
       features: ["Barbed Wire Fencing", "Chain Link Fencing", "Electric Fencing", "Security Solutions"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "/lovable-uploads/7.jpg",
+        "/lovable-uploads/8.jpg",
+        "/lovable-uploads/9.jpg"
       ],
     },
     {
@@ -104,9 +104,9 @@ const Services = () => {
       description: "Comprehensive environmental management services including waste management, pollution control, and specialized cleaning solutions.",
       features: ["Waste & Pollution Control", "Vacuum Truck & Dredging", "Dam De-sludging", "Tree Felling & Alien Species Removal"],
       images: [
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250",
-        "/api/placeholder/400/250"
+        "/lovable-uploads/1.jpg",
+        "/lovable-uploads/2.jpg",
+        "/lovable-uploads/3.jpg"
       ],
     }
   ];

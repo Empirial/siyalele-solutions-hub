@@ -93,9 +93,9 @@ const Services = () => {
       description: "Complete supply and delivery services for construction materials, machinery, office supplies, and specialized equipment hire.",
       features: ["Construction Materials", "Engineering Components", "Office Supplies & Stationery", "Machine Hire Services"],
       images: [
-        "/public/loveable-uploads/Elec.jpeg",
-        "/public/loveable-uploads/OfficeS.jpeg",
-        "/public/loveable-uploads/Constr.jpeg"
+        "/lovable-uploads/Elec.jpeg",
+        "/lovable-uploads/OfficeS.jpeg", 
+        "/lovable-uploads/Constr.jpeg"
       ],
     },
     {

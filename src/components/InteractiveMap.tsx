@@ -15,7 +15,7 @@ const InteractiveMap = () => {
   const coordinates: [number, number] = [29.2333, -25.8667]; // eMalahleni coordinates
 
   useEffect(() => {
-    if (!mapContainer.current || !mapboxToken) return;
+    if (!mapContainer.current || !mapboxToken.trim()) return;
 
     try {
       // Initialize map

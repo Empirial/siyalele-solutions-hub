@@ -32,6 +32,8 @@ All colors MUST be HSL.
 
     --accent-orange: 20 100% 55%;
     --accent-deep-orange: 15 100% 50%;
+    --accent-turquoise: 189 85% 50%;
+    --accent-blue: 217 91% 60%;
     
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;

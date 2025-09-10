@@ -40,7 +40,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const EMAIL_RECIPIENT = 'mphelalufuno1.0@gmail.com';
+    const EMAIL_RECIPIENT = 'siyalele.pty.ltd@gmail.com';
 
     try {
       const subject = `Quote Request - ${formData.service || 'General'}`;
@@ -148,7 +148,7 @@ const ContactForm = () => {
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center text-industrial font-medium">
                     <Mail className="h-4 w-4 mr-2 text-primary" />
-                    Email Address *
+                    siyalele.pty.ltd@gmail.com
                   </Label>
                   <Input
                     id="email"
@@ -263,9 +263,9 @@ const ContactForm = () => {
                     <Phone className="h-4 w-4 mr-2" />
                     +27 73 217 8184
                   </a>
-                  <a href="mailto:mphelalufuno1.0@gmail.com" className="flex items-center text-primary hover:text-primary-hover transition-colors">
+                  <a href="mailto:siyalele.pty.ltd@gmail.com" className="flex items-center text-primary hover:text-primary-hover transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
-                    mphelalufuno1.0@gmail.com
+                    siyalele.pty.ltd@gmail.com
                   </a>
                 </div>
               </div>

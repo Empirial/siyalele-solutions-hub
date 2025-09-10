@@ -38,50 +38,34 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     setIsSubmitting(true);
 
-    const EMAIL_RECIPIENT = 'siyalele.pty.ltd@gmail.com';
-
     try {
-      const subject = `Quote Request - ${formData.service || 'General'}`;
-      const body = `New quote request from ${formData.name}\n\n` +
-        `Service: ${formData.service}\n` +
-        `Company: ${formData.company || 'Not provided'}\n` +
-        `Phone: ${formData.phone}\n` +
-        `Email: ${formData.email}\n\n` +
-        `Project Details:\n${formData.message}`;
+      // Create form data for Netlify
+      const netlifyFormData = new FormData();
+      netlifyFormData.append('form-name', 'quote-request');
+      netlifyFormData.append('name', formData.name);
+      netlifyFormData.append('email', formData.email);
+      netlifyFormData.append('phone', formData.phone);
+      netlifyFormData.append('company', formData.company);
+      netlifyFormData.append('service', formData.service);
+      netlifyFormData.append('message', formData.message);
 
-      // EmailJS configuration (optionally stored in localStorage)
-      const SERVICE_ID = localStorage.getItem('emailjs_service_id') || 'service_siyalele';
-      const TEMPLATE_ID = localStorage.getItem('emailjs_template_id') || 'template_quote';
-      const PUBLIC_KEY = localStorage.getItem('emailjs_public_key') || '';
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(netlifyFormData as any).toString()
+      });
 
-      const templateParams = {
-        to_email: EMAIL_RECIPIENT,
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.company || 'Not provided',
-        service: formData.service,
-        message: formData.message,
-        subject,
-      };
-
-      if (PUBLIC_KEY && SERVICE_ID && TEMPLATE_ID) {
-        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-
+      if (response.ok) {
         toast({
-          title: "Quote Request Sent",
-          description: "Thanks! We’ll reply within 2 business hours.",
+          title: "Quote Request Sent Successfully!",
+          description: "Thank you! We'll reply to your email within 2 business hours.",
         });
       } else {
-        // Graceful fallback: open user's email client
-        const mailto = `mailto:${EMAIL_RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto;
-        toast({
-          title: "Opening your email app",
-          description: "We couldn’t auto-send, so we prefilled an email for you.",
-        });
+        throw new Error('Form submission failed');
       }
 
       // Reset form
@@ -95,8 +79,8 @@ const ContactForm = () => {
       });
     } catch (error) {
       toast({
-        title: "Failed to send quote",
-        description: "Please try again or use the email button below.",
+        title: "Submission Failed",
+        description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
         variant: "destructive",
       });
     }
@@ -126,7 +110,24 @@ const ContactForm = () => {
           </CardHeader>
           
           <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              name="quote-request" 
+              method="POST" 
+              data-netlify="true" 
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              {/* Netlify form detection */}
+              <input type="hidden" name="form-name" value="quote-request" />
+              
+              {/* Honeypot field for spam protection */}
+              <div style={{ display: 'none' }}>
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">

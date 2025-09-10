@@ -1,0 +1,27 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[form]
+  name = "quote-request"
+  
+[form.settings]
+  # Send form submissions to your email
+  to = "siyalele.pty.ltd@gmail.com"
+  subject = "New Quote Request from Website"
+  
+[form.fields]
+  name = "Name"
+  email = "Email"
+  phone = "Phone"
+  company = "Company"
+  service = "Service"
+  message = "Message"

@@ -230,4 +230,36 @@ const Services = () => {
   );
 };
 
+// Add this component to test image loading
+const ImageWithFallback = ({ src, alt, className }) => {
+  const [error, setError] = useState(false);
+  
+  return (
+    <>
+      {error && (
+        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs p-1 rounded z-10">
+          Image failed to load
+        </div>
+      )}
+      <img 
+        src={src}
+        alt={alt}
+        className={className}
+        onError={() => {
+          console.error(`Failed to load image: ${src}`);
+          setError(true);
+        }}
+        onLoad={() => console.log(`Successfully loaded: ${src}`)}
+      />
+    </>
+  );
+};
+
+// Then use it in your component:
+<ImageWithFallback
+  src={service.images[currentImageIdx]} 
+  alt={`${service.title} - Image ${currentImageIdx + 1}`}
+  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+/>;
+
 export default Services;

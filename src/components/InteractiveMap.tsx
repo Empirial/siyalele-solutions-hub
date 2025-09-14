@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 // Fix for default markers in Leaflet with React
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import L from 'leaflet';
 
 let DefaultIcon = L.divIcon({
   html: `

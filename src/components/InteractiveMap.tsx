@@ -5,40 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
 
-// Fix for default markers in Leaflet with React
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import L from 'leaflet';
-
-let DefaultIcon = L.divIcon({
-  html: `
-    <div style="
-      background-color: #ea580c;
-      width: 25px;
-      height: 41px;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      border: 2px solid #fff;
-      position: relative;
-    ">
-      <div style="
-        width: 8px;
-        height: 8px;
-        background-color: white;
-        border-radius: 50%;
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        transform: rotate(45deg);
-      "></div>
-    </div>
-  `,
-  className: 'custom-div-icon',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-});
-
 const InteractiveMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -52,125 +51,6 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration - User needs to set these up
-      const serviceId = 'YOUR_EMAILJS_SERVICE_ID'; // User needs to replace
-      const templateId = 'YOUR_EMAILJS_TEMPLATE_ID'; // User needs to replace
-      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // User needs to replace
-
-      // Template parameters for EmailJS
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.company || 'Not specified',
-        service: formData.service,
-        message: formData.message,
-        to_email: 'siyalele.pty.ltd@gmail.com',
-        cc_email: 'mphelalufuno1.0@gmail.com',
-        reply_to: formData.email
-      };
-
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
-      );
-
-      if (response.status === 200) {
-        toast({
-          title: "Quote Request Sent Successfully!",
-          description: "Thank you! We'll reply to your email within 2 business hours.",
-        });
-        
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        throw new Error('EmailJS response not successful');
-      }
-
-    } catch (error) {
-      console.error('Email sending error:', error);
-      
-      // Fallback: Try Netlify form submission
-      try {
-        const netlifyFormData = new FormData();
-        netlifyFormData.append('form-name', 'quote-request');
-        netlifyFormData.append('name', formData.name);
-        netlifyFormData.append('email', formData.email);
-        netlifyFormData.append('phone', formData.phone);
-        netlifyFormData.append('company', formData.company);
-        netlifyFormData.append('service', formData.service);
-        netlifyFormData.append('message', formData.message);
-
-        const netlifyResponse = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(netlifyFormData as any).toString()
-        });
-
-        if (netlifyResponse.ok) {
-          toast({
-            title: "Quote Request Submitted!",
-            description: "Your request has been submitted. We'll contact you soon.",
-          });
-          
-          // Reset form
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            company: "",
-            service: "",
-            message: "",
-          });
-        } else {
-          throw new Error('Netlify form submission failed');
-        }
-      } catch (netlifyError) {
-        toast({
-          title: "Submission Failed",
-          description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
-          variant: "destructive",
-        });
-      }
-    }
-
-    setIsSubmitting(false);
-  };
-
-  // Alternative: Direct mailto link as backup
-  const handleDirectEmail = () => {
-    const subject = encodeURIComponent(`Quote Request - ${formData.service}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company || 'Not specified'}
-Service: ${formData.service}
-
-Message:
-${formData.message}
-    `);
-    
-    const mailtoLink = `mailto:siyalele.pty.ltd@gmail.com?cc=mphelalufuno1.0@gmail.com&subject=${subject}&body=${body}`;
-    window.open(mailtoLink, '_blank');
-  };
-
-  const handleSubmitOld = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-
-    try {
       // Create form data for Netlify
       const netlifyFormData = new FormData();
       netlifyFormData.append('form-name', 'quote-request');
@@ -191,13 +71,24 @@ ${formData.message}
       if (response.ok) {
         toast({
           title: "Quote Request Sent Successfully!",
-          description: "Thank you! We'll reply to your email within 2 business hours.",
+          description: "Thank you! We'll contact you within 2 business hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          message: "",
         });
       } else {
         throw new Error('Form submission failed');
       }
 
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Submission Failed",
         description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
@@ -206,6 +97,24 @@ ${formData.message}
     }
 
     setIsSubmitting(false);
+  };
+
+  // Direct mailto link as backup
+  const handleDirectEmail = () => {
+    const subject = encodeURIComponent(`Quote Request - ${formData.service}`);
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company || 'Not specified'}
+Service: ${formData.service}
+
+Message:
+${formData.message}
+    `);
+    
+    const mailtoLink = `mailto:siyalele.pty.ltd@gmail.com?cc=mphelalufuno1.0@gmail.com&subject=${subject}&body=${body}`;
+    window.open(mailtoLink, '_blank');
   };
 
   return (
@@ -233,20 +142,12 @@ ${formData.message}
             <form 
               name="quote-request" 
               method="POST" 
-              data-netlify="true" 
-              data-netlify-honeypot="bot-field"
+              netlify
               onSubmit={handleSubmit} 
               className="space-y-6"
             >
-              {/* Netlify form detection */}
+              {/* Netlify form detection - hidden input */}
               <input type="hidden" name="form-name" value="quote-request" />
-              
-              {/* Honeypot field for spam protection */}
-              <div style={{ display: 'none' }}>
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
@@ -257,6 +158,7 @@ ${formData.message}
                   </Label>
                   <Input
                     id="name"
+                    name="name"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     placeholder="Enter your full name"
@@ -273,6 +175,7 @@ ${formData.message}
                   </Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
@@ -290,6 +193,7 @@ ${formData.message}
                   </Label>
                   <Input
                     id="phone"
+                    name="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
@@ -307,6 +211,7 @@ ${formData.message}
                   </Label>
                   <Input
                     id="company"
+                    name="company"
                     value={formData.company}
                     onChange={(e) => handleInputChange("company", e.target.value)}
                     placeholder="Enter your company name"
@@ -321,7 +226,12 @@ ${formData.message}
                   <MessageSquare className="h-4 w-4 mr-2 text-primary" />
                   Service Required *
                 </Label>
-                <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
+                <Select 
+                  name="service"
+                  value={formData.service} 
+                  onValueChange={(value) => handleInputChange("service", value)}
+                  required
+                >
                   <SelectTrigger className="border-gray-200 focus:border-primary focus:ring-primary">
                     <SelectValue placeholder="Select the service you need" />
                   </SelectTrigger>
@@ -333,6 +243,8 @@ ${formData.message}
                     ))}
                   </SelectContent>
                 </Select>
+                {/* Hidden input for Netlify form detection */}
+                <input type="hidden" name="service" value={formData.service} />
               </div>
 
               {/* Message */}
@@ -343,6 +255,7 @@ ${formData.message}
                 </Label>
                 <Textarea
                   id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
                   placeholder="Please describe your project requirements, timeline, and any specific details..."

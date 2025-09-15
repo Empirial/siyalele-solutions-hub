@@ -39,6 +39,135 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration - User needs to set these up
+      const serviceId = 'YOUR_EMAILJS_SERVICE_ID'; // User needs to replace
+      const templateId = 'YOUR_EMAILJS_TEMPLATE_ID'; // User needs to replace
+      const publicKey = 'YOUR_EMAILJS_PUBLIC_KEY'; // User needs to replace
+
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Not specified',
+        service: formData.service,
+        message: formData.message,
+        to_email: 'siyalele.pty.ltd@gmail.com',
+        cc_email: 'mphelalufuno1.0@gmail.com',
+        reply_to: formData.email
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: "Quote Request Sent Successfully!",
+          description: "Thank you! We'll reply to your email within 2 business hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        throw new Error('EmailJS response not successful');
+      }
+
+    } catch (error) {
+      console.error('Email sending error:', error);
+      
+      // Fallback: Try Netlify form submission
+      try {
+        const netlifyFormData = new FormData();
+        netlifyFormData.append('form-name', 'quote-request');
+        netlifyFormData.append('name', formData.name);
+        netlifyFormData.append('email', formData.email);
+        netlifyFormData.append('phone', formData.phone);
+        netlifyFormData.append('company', formData.company);
+        netlifyFormData.append('service', formData.service);
+        netlifyFormData.append('message', formData.message);
+
+        const netlifyResponse = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(netlifyFormData as any).toString()
+        });
+
+        if (netlifyResponse.ok) {
+          toast({
+            title: "Quote Request Submitted!",
+            description: "Your request has been submitted. We'll contact you soon.",
+          });
+          
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            service: "",
+            message: "",
+          });
+        } else {
+          throw new Error('Netlify form submission failed');
+        }
+      } catch (netlifyError) {
+        toast({
+          title: "Submission Failed",
+          description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
+          variant: "destructive",
+        });
+      }
+    }
+
+    setIsSubmitting(false);
+  };
+
+  // Alternative: Direct mailto link as backup
+  const handleDirectEmail = () => {
+    const subject = encodeURIComponent(`Quote Request - ${formData.service}`);
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company || 'Not specified'}
+Service: ${formData.service}
+
+Message:
+${formData.message}
+    `);
+    
+    const mailtoLink = `mailto:siyalele.pty.ltd@gmail.com?cc=mphelalufuno1.0@gmail.com&subject=${subject}&body=${body}`;
+    window.open(mailtoLink, '_blank');
+  };
+
+  const handleSubmitOld = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     setIsSubmitting(true);
 
     try {
@@ -68,15 +197,6 @@ const ContactForm = () => {
         throw new Error('Form submission failed');
       }
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        message: "",
-      });
     } catch (error) {
       toast({
         title: "Submission Failed",
@@ -234,24 +354,37 @@ const ContactForm = () => {
 
               {/* Submit Button */}
               <div className="text-center pt-4">
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full md:w-auto bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-12 py-4 transform hover:scale-105"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-5 w-5" />
-                      Submit Quote Request
-                    </>
-                  )}
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-12 py-4 transform hover:scale-105"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-5 w-5" />
+                        Submit Quote Request
+                      </>
+                    )}
+                  </Button>
+                  
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="lg"
+                    onClick={handleDirectEmail}
+                    className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold text-lg px-8 py-4"
+                  >
+                    <Mail className="mr-2 h-5 w-5" />
+                    Email Directly
+                  </Button>
+                </div>
               </div>
 
               {/* Contact Info */}

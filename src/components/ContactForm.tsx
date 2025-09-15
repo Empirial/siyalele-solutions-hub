@@ -51,42 +51,36 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Create form data for Netlify
-      const netlifyFormData = new FormData();
-      netlifyFormData.append('form-name', 'quote-request');
-      netlifyFormData.append('name', formData.name);
-      netlifyFormData.append('email', formData.email);
-      netlifyFormData.append('phone', formData.phone);
-      netlifyFormData.append('company', formData.company);
-      netlifyFormData.append('service', formData.service);
-      netlifyFormData.append('message', formData.message);
-
-      // Submit to Netlify
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(netlifyFormData as any).toString()
+      // Let Netlify handle the form submission naturally
+      // Create a temporary form and submit it
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.setAttribute('netlify', '');
+      form.name = 'quote-request';
+      form.style.display = 'none';
+      
+      // Add all form fields
+      const fields = [
+        { name: 'form-name', value: 'quote-request' },
+        { name: 'name', value: formData.name },
+        { name: 'email', value: formData.email },
+        { name: 'phone', value: formData.phone },
+        { name: 'company', value: formData.company },
+        { name: 'service', value: formData.service },
+        { name: 'message', value: formData.message }
+      ];
+      
+      fields.forEach(field => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = field.name;
+        input.value = field.value;
+        form.appendChild(input);
       });
-
-      if (response.ok) {
-        toast({
-          title: "Quote Request Sent Successfully!",
-          description: "Thank you! We'll contact you within 2 business hours.",
-        });
-        
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        throw new Error('Form submission failed');
-      }
-
+      
+      document.body.appendChild(form);
+      form.submit();
+      
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
@@ -94,9 +88,8 @@ const ContactForm = () => {
         description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
         variant: "destructive",
       });
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   // Direct mailto link as backup
@@ -141,8 +134,8 @@ ${formData.message}
           <CardContent className="p-8">
             <form 
               name="quote-request" 
-              method="POST" 
-              netlify
+              method="POST"
+              netlify="true"
               onSubmit={handleSubmit} 
               className="space-y-6"
             >

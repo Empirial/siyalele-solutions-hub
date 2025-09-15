@@ -4,35 +4,19 @@
 
 **URL**: https://lovable.dev/projects/b5cf3c74-eb8b-40f0-a4c0-77d14c34e767
 
-## EmailJS Setup for Quote Forms
+## Netlify Forms Setup
 
-To enable quote form submissions via email, you need to set up EmailJS:
+Quote submissions are handled automatically by Netlify Forms:
 
-1. **Create EmailJS Account**: Go to https://www.emailjs.com/ and create a free account
+1. **Form Detection**: Netlify automatically detects the form with `netlify` attribute
+2. **Submissions**: All quotes are sent to your Netlify dashboard
+3. **Email Notifications**: Configure email notifications in Netlify dashboard:
+   - Go to Site Settings > Forms
+   - Set notification email to: siyalele.pty.ltd@gmail.com
+   - Add CC: mphelalufuno1.0@gmail.com
+4. **No Setup Required**: Forms work immediately after deployment
 
-2. **Create Email Service**: 
-   - Add Gmail service
-   - Connect your Gmail account (siyalele.pty.ltd@gmail.com)
-
-3. **Create Email Template**:
-   - Template should include these variables:
-     - `{{from_name}}` - Customer name
-     - `{{from_email}}` - Customer email  
-     - `{{phone}}` - Customer phone
-     - `{{company}}` - Customer company
-     - `{{service}}` - Requested service
-     - `{{message}}` - Customer message
-   - Set TO: siyalele.pty.ltd@gmail.com
-   - Set CC: mphelalufuno1.0@gmail.com
-
-4. **Update ContactForm.tsx**:
-   - Replace `YOUR_EMAILJS_SERVICE_ID` with your service ID
-   - Replace `YOUR_EMAILJS_TEMPLATE_ID` with your template ID  
-   - Replace `YOUR_EMAILJS_PUBLIC_KEY` with your public key
-
-5. **Fallback Options**:
-   - Netlify forms (already configured)
-   - Direct mailto link button (already added)
+**Backup Option**: Direct email button opens user's email client with pre-filled quote details.
 
 ## How can I edit this code?
 

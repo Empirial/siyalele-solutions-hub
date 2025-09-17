@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send, User, Mail, Phone, MessageSquare, Building } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -19,6 +20,11 @@ const ContactForm = () => {
     service: "",
     message: ""
   });
+
+  // EmailJS Configuration
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id';
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id';
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
 
   const services = [
     "Mining & Construction Supply",
@@ -51,43 +57,64 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Let Netlify handle the form submission naturally
-      // Create a temporary form and submit it
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.setAttribute('netlify', '');
-      form.name = 'quote-request';
-      form.style.display = 'none';
-      
-      // Add all form fields
-      const fields = [
-        { name: 'form-name', value: 'quote-request' },
-        { name: 'name', value: formData.name },
-        { name: 'email', value: formData.email },
-        { name: 'phone', value: formData.phone },
-        { name: 'company', value: formData.company },
-        { name: 'service', value: formData.service },
-        { name: 'message', value: formData.message }
-      ];
-      
-      fields.forEach(field => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = field.name;
-        input.value = field.value;
-        form.appendChild(input);
+      // Initialize EmailJS (you can also do this once in your app's entry point)
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Not specified',
+        service: formData.service,
+        message: formData.message,
+        to_email: 'siyalele.pty.ltd@gmail.com',
+        cc_email: 'mphelalufuno1.0@gmail.com',
+        subject: `Quote Request - ${formData.service}`,
+        reply_to: formData.email,
+        current_date: new Date().toLocaleDateString('en-ZA', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
+
+      // Show success message
+      toast({
+        title: "Quote Request Sent!",
+        description: "Thank you for your inquiry. We'll get back to you within 2 hours.",
+        variant: "default",
       });
-      
-      document.body.appendChild(form);
-      form.submit();
-      
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        message: ""
+      });
+
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('EmailJS error:', error);
       toast({
         title: "Submission Failed",
         description: "Please try again or contact us directly at siyalele.pty.ltd@gmail.com",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -132,16 +159,7 @@ ${formData.message}
           </CardHeader>
           
           <CardContent className="p-8">
-            <form 
-              name="quote-request" 
-              method="POST"
-              netlify="true"
-              onSubmit={handleSubmit} 
-              className="space-y-6"
-            >
-              {/* Netlify form detection - hidden input */}
-              <input type="hidden" name="form-name" value="quote-request" />
-
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
@@ -236,8 +254,6 @@ ${formData.message}
                     ))}
                   </SelectContent>
                 </Select>
-                {/* Hidden input for Netlify form detection */}
-                <input type="hidden" name="service" value={formData.service} />
               </div>
 
               {/* Message */}

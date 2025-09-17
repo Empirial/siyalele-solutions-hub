@@ -22,9 +22,9 @@ const ContactForm = () => {
   });
 
   // EmailJS Configuration
-  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id';
-  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id';
-  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key';
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key';
 
   const services = [
     "Mining & Construction Supply",
@@ -279,7 +279,6 @@ ${formData.message}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     type="submit"
-                    size="lg"
                     disabled={isSubmitting}
                     className="bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-glow transition-all duration-smooth text-white font-bold text-lg px-12 py-4 transform hover:scale-105"
                   >
@@ -298,8 +297,6 @@ ${formData.message}
                   
                   <Button
                     type="button"
-                    variant="outline"
-                    size="lg"
                     onClick={handleDirectEmail}
                     className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold text-lg px-8 py-4"
                   >

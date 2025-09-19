@@ -87,7 +87,7 @@ const Gallery: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-slate-800 dark:text-slate-100">
             Project Gallery
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-slate-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Showcasing our expertise in mining, engineering, and consulting solutions
           </p>
@@ -100,7 +100,7 @@ const Gallery: React.FC = () => {
               variant="ghost"
               size="sm"
               onClick={toggleAutoPlay}
-              className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
             >
               {isAutoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               {isAutoPlaying ? "Pause" : "Play"}
@@ -167,7 +167,7 @@ const Gallery: React.FC = () => {
 
                     {/* Professional Badge */}
                     <div className="absolute top-4 left-4">
-                      <div className="bg-blue-600/90 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
+                      <div className="bg-orange-600/90 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
                         Siyalele Projects
                       </div>
                     </div>
@@ -187,7 +187,7 @@ const Gallery: React.FC = () => {
                 onClick={() => setStartIdx(idx * VISIBLE_COUNT)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   Math.floor(startIdx / VISIBLE_COUNT) === idx
-                    ? "bg-blue-600 scale-125"
+                    ? "bg-orange-600 scale-125"
                     : "bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"
                 }`}
                 aria-label={`Go to page ${idx + 1}`}

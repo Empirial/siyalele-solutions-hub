@@ -32,9 +32,6 @@ const imageFiles = [
   "siyalele 2.jpg",
   "siyalele 3.jpg",
   "siyalele.jpg",
-  "1.jpg",
-  "Headphones.jpg",
-  "headphones2.jpg",
 ];
 
 const VISIBLE_COUNT = 3; // Changed to 3 for better focus on individual images
@@ -83,7 +80,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <section id="gallery" className="py-20 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-16">

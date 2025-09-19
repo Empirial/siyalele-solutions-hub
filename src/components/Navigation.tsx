@@ -20,6 +20,7 @@ const Navigation = () => {
     { label: "Home", href: "#home" },
     { label: "About Us", href: "#about" },
     { label: "Our Services", href: "#services" },
+    { label: "Project Gallery", href: "#gallery" }, // <-- Add this line
     { label: "Directors", href: "#directors" },
     { label: "Trusted by", href: "#clients" },
     { label: "Contact", href: "#contact" },

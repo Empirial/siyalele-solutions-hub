@@ -118,25 +118,7 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-
-  // Direct mailto link as backup
-  const handleDirectEmail = () => {
-    const subject = encodeURIComponent(`Quote Request - ${formData.service}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company || 'Not specified'}
-Service: ${formData.service}
-
-Message:
-${formData.message}
-    `);
-    
-    const mailtoLink = `mailto:siyalele.pty.ltd@gmail.com?cc=mphelalufuno1.0@gmail.com&subject=${subject}&body=${body}`;
-    window.open(mailtoLink, '_blank');
-  };
-
+  
   return (
     <section id="contact-form" className="py-20 bg-gradient-to-br from-muted/30 to-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -293,15 +275,6 @@ ${formData.message}
                         Submit Quote Request
                       </>
                     )}
-                  </Button>
-                  
-                  <Button
-                    type="button"
-                    onClick={handleDirectEmail}
-                    className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold text-lg px-8 py-4"
-                  >
-                    <Mail className="mr-2 h-5 w-5" />
-                    Email Directly
                   </Button>
                 </div>
               </div>

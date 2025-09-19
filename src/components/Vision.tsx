@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, Eye, Heart } from "lucide-react";
+import { Target, Eye, Heart, Lightbulb, Compass } from "lucide-react";
 
 const Vision = () => {
   return (
@@ -30,12 +30,12 @@ const Vision = () => {
             </CardContent>
           </Card>
 
-          {/* Mission */}
+          {/* Mission - Changed icon to Compass for better visibility and meaning */}
           <Card className="group hover:shadow-elevated transition-all duration-smooth border-0 bg-white hover:-translate-y-1 transform animate-scale-in" style={{ animationDelay: '150ms' }}>
             <CardContent className="p-10">
               <div className="flex items-center mb-8">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent-blue rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-smooth shadow-card">
-                  <Target className="h-8 w-8 text-white" />
+                  <Compass className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-industrial">Our Mission</h3>
               </div>
@@ -58,17 +58,19 @@ const Vision = () => {
               <p className="text-muted-foreground leading-relaxed">Commitment to delivering the highest quality services and solutions</p>
             </div>
             
+            {/* Innovation - Changed from Target to Lightbulb for better representation */}
             <div className="text-center group animate-scale-in" style={{ animationDelay: '150ms' }}>
               <div className="w-20 h-20 bg-gradient-to-br from-secondary to-accent-blue rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-smooth shadow-card group-hover:shadow-glow">
-                <Target className="h-10 w-10 text-white" />
+                <Lightbulb className="h-10 w-10 text-white" />
               </div>
               <h4 className="font-heading font-bold text-industrial mb-3 text-lg">Innovation</h4>
               <p className="text-muted-foreground leading-relaxed">Embracing new technologies and creative approaches to problem-solving</p>
             </div>
             
+            {/* Empowerment - Changed from Eye to Target for better meaning */}
             <div className="text-center group animate-scale-in" style={{ animationDelay: '300ms' }}>
               <div className="w-20 h-20 bg-gradient-to-br from-accent-orange to-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-smooth shadow-card group-hover:shadow-glow">
-                <Eye className="h-10 w-10 text-white" />
+                <Target className="h-10 w-10 text-white" />
               </div>
               <h4 className="font-heading font-bold text-industrial mb-3 text-lg">Empowerment</h4>
               <p className="text-muted-foreground leading-relaxed">Promoting transformation and sustainable business growth</p>

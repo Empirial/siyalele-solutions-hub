@@ -20,8 +20,6 @@ const imageFiles = [
   "IMG-20250919-WA0048.jpg",
   "IMG-20250919-WA0049.jpg",
   "IMG-20250919-WA0050.jpg",
-  "IMG-20250919-WA0051.jpg",
-  "IMG-20250919-WA0052.jpg",
   "IMG-20250919-WA0053.jpg",
   "IMG-20250919-WA0054.jpg",
   "IMG-20250919-WA0055.jpg",
@@ -31,7 +29,6 @@ const imageFiles = [
   "IMG-20250919-WA0060.jpg",
   "siyalele 2.jpg",
   "siyalele 3.jpg",
-  "siyalele.jpg",
 ];
 
 const VISIBLE_COUNT = 3; // Changed to 3 for better focus on individual images

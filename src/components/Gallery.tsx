@@ -155,13 +155,6 @@ const Gallery: React.FC = () => {
                         </p>
                       </div>
                     </div>
-
-                    {/* Professional Badge */}
-                    <div className="absolute top-4 left-4">
-                      <div className="bg-orange-600/90 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
-                        Siyalele Projects
-                      </div>
-                    </div>
                   </div>
                 </Card>
               ))}

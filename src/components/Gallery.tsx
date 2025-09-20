@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const imageFiles = [
   "IMG-20250919-WA0001.jpg",
@@ -31,11 +31,10 @@ const imageFiles = [
   "siyalele 3.jpg",
 ];
 
-const VISIBLE_COUNT = 3; // Changed to 3 for better focus on individual images
+const VISIBLE_COUNT = 3;
 
 const Gallery: React.FC = () => {
   const [startIdx, setStartIdx] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Circular logic for visible images
@@ -57,17 +56,6 @@ const Gallery: React.FC = () => {
     setStartIdx((prev) => (prev + 1) % imageFiles.length);
   };
 
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying);
-  };
-
-  // Auto-slide functionality
-  React.useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(handleNext, 5000); // Slower for professional feel
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
   // Format image name for display
   const formatImageName = (filename: string) => {
     return filename
@@ -86,7 +74,7 @@ const Gallery: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-slate-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            At Siyalele Projects, we take pride in being a versatile solutions provider across multiple industries. Our gallery showcases the wide range of services and products we deliver, from mining and construction supplies to engineering maintenance, HR consulting, conferencing solutions, fencing, environmental management, and more. Each image reflects our commitment to quality, safety, and innovation—demonstrating how we support our clients with reliable tools, equipment, and expertise for every project.
+            At Siyalele Projects, we take pride in being a versatile solutions provider across multiple industries. Our gallery showcases the wide range of services and products we deliver, from mining and construction supplies to engineering maintenance, HR consulting, conferencing solutions, fencing, environmental management, and more. Each image reflects our commitment to quality, safety, and innovation—demonstrating how we support our clients with reliable tools, equipment, and expertise for every project.
           </p>
         </div>
 
@@ -136,22 +124,17 @@ const Gallery: React.FC = () => {
                     <img
                       src={`/lovable-uploads/${file}`}
                       alt={formatImageName(file)}
-                      className="w-full h-64 object-cover transition-all duration-500 group-hover:brightness-110"
+                      className="w-full h-64 object-cover transition-all duration-500 group-hover:brightness-110 cursor-pointer"
                       loading="lazy"
                       onClick={() => setSelectedImage(file)}
                     />
-                    
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-white font-semibold text-lg mb-2">
-                          {formatImageName(file)}
-                        </h3>
-                        <p className="text-slate-200 text-sm">
-                          Click to view full size
-                        </p>
-                      </div>
-                    </div>
+                  </div>
+                  
+                  {/* Text below image */}
+                  <div className="p-4">
+                    <h3 className="text-slate-800 dark:text-slate-200 font-semibold text-lg text-center">
+                      {formatImageName(file)}
+                    </h3>
                   </div>
                 </Card>
               ))}
@@ -185,24 +168,4 @@ const Gallery: React.FC = () => {
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-4xl max-h-full">
-            <img
-              src={`/lovable-uploads/${selectedImage}`}
-              alt={formatImageName(selectedImage)}
-              className="max-w-full max-h-full object-contain rounded-lg"
-            />
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
-            >
-              ×
-            </Button>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-};
-
-export default Gallery;
+            <im

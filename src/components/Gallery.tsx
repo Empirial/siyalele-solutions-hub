@@ -29,6 +29,8 @@ const imageFiles = [
   "IMG-20250919-WA0060.jpg",
   "siyalele 2.jpg",
   "siyalele 3.jpg",
+  "Headphones.jpg",
+  "headphones2.jpg",
 ];
 
 const VISIBLE_COUNT = 3;
@@ -128,13 +130,6 @@ const Gallery: React.FC = () => {
                       loading="lazy"
                       onClick={() => setSelectedImage(file)}
                     />
-                  </div>
-                  
-                  {/* Text below image */}
-                  <div className="p-4">
-                    <h3 className="text-slate-800 dark:text-slate-200 font-semibold text-lg text-center">
-                      {formatImageName(file)}
-                    </h3>
                   </div>
                 </Card>
               ))}

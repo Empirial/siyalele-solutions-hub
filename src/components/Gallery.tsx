@@ -168,4 +168,24 @@ const Gallery: React.FC = () => {
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-4xl max-h-full">
-            <im
+            <img
+              src={`/lovable-uploads/${selectedImage}`}
+              alt={formatImageName(selectedImage)}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+            >
+              ×
+            </Button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Gallery;

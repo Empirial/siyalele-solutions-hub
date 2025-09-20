@@ -31,6 +31,7 @@ const imageFiles = [
   "siyalele 3.jpg",
   "Headphones.jpg",
   "headphones2.jpg",
+  "headphones3.jpg",
 ];
 
 const VISIBLE_COUNT = 3;

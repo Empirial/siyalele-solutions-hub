@@ -85,7 +85,7 @@ const Gallery: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-slate-800 dark:text-slate-100">
-            Project Gallery
+            Gallery
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-slate-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
@@ -96,15 +96,6 @@ const Gallery: React.FC = () => {
         {/* Gallery Controls */}
         <div className="flex justify-center items-center mb-12">
           <div className="flex items-center gap-4 bg-white dark:bg-slate-800 rounded-full px-6 py-3 shadow-lg border border-slate-200 dark:border-slate-700">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleAutoPlay}
-              className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
-            >
-              {isAutoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-              {isAutoPlaying ? "Pause" : "Play"}
-            </Button>
             <div className="w-px h-6 bg-slate-300 dark:bg-slate-600"></div>
             <span className="text-sm text-slate-500 dark:text-slate-400">
               {startIdx + 1} - {Math.min(startIdx + VISIBLE_COUNT, imageFiles.length)} of {imageFiles.length}

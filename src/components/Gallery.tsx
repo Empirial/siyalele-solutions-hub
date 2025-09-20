@@ -89,7 +89,7 @@ const Gallery: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-slate-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Showcasing our expertise in mining, engineering, and consulting solutions
+            At Siyalele Projects, we take pride in being a versatile solutions provider across multiple industries. Our gallery showcases the wide range of services and products we deliver, from mining and construction supplies to engineering maintenance, HR consulting, conferencing solutions, fencing, environmental management, and more. Each image reflects our commitment to quality, safety, and innovation—demonstrating how we support our clients with reliable tools, equipment, and expertise for every project.
           </p>
         </div>
 
